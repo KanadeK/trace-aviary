@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trace Aviary</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+  </head>
+  <body>
+    <header>
+      <div>
+        <p class="eyebrow">Trace Aviary v0.1.0</p>
+        <h1>Incident species from noisy logs and stack traces</h1>
+      </div>
+      <a class="button" href="/healthz">Health</a>
+    </header>
+    <main>
+      <section class="workspace">
+        <form method="post" action="/analyze" enctype="multipart/form-data">
+          <label>
+            Upload plain text, JSONL, or Sentry-style JSON
+            <input type="file" name="file" accept=".txt,.log,.json,.jsonl">
+          </label>
+          <label>
+            Or paste logs
+            <textarea name="pasted" rows="10" spellcheck="false"></textarea>
+          </label>
+          <label>
+            Clusters
+            <input type="number" name="clusters" min="1" max="20" aria-label="Cluster count">
+          </label>
+          <button type="submit">Analyze</button>
+        </form>
+        <div class="summary">
+          <strong>{{ result.total_events }}</strong>
+          <span>events grouped into</span>
+          <strong>{{ result.clusters|length }}</strong>
+          <span>incident species{% if sample_loaded %} using the bundled deterministic sample{% endif %}</span>
+        </div>
+      </section>
+      <section class="clusters">
+        {% for cluster in result.clusters %}
+        <article>
+          <div class="cluster-head">
+            <h2>{{ cluster.species }}</h2>
+            <span>{{ cluster.sample_count }} samples</span>
+          </div>
+          <p>{{ cluster.reproduction_hypothesis }}</p>
+          <p class="tokens">{{ cluster.common_tokens|join(", ") }}</p>
+          <pre>{{ cluster.representative.text }}</pre>
+        </article>
+        {% endfor %}
+      </section>
+    </main>
+  </body>
+</html>

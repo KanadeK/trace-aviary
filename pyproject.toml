@@ -1,0 +1,83 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trace-aviary"
+version = "0.1.0"
+description = "Cluster logs and stack traces into incident species with representative samples, shared symptoms, and reproduction hypotheses."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+authors = [{ name = "KanadeK" }]
+keywords = ["logs", "incident-response", "clustering", "observability", "fastapi"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Framework :: FastAPI",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: System :: Logging",
+]
+dependencies = [
+  "fastapi>=0.116,<0.117",
+  "jinja2>=3.1,<4",
+  "numpy>=2.0,<3",
+  "polars>=1.31,<2",
+  "pydantic>=2.11,<3",
+  "python-multipart>=0.0.20,<0.1",
+  "rich>=13.9,<14",
+  "scikit-learn>=1.7,<2",
+  "typer>=0.16,<0.17",
+  "uvicorn>=0.35,<0.36",
+]
+
+[project.optional-dependencies]
+dev = [
+  "build>=1.2,<2",
+  "httpx>=0.28,<0.29",
+  "mypy>=1.17,<2",
+  "pip-audit>=2.9,<3",
+  "pytest>=8.4,<9",
+  "pytest-cov>=6.2,<7",
+  "ruff>=0.12,<0.13",
+  "types-PyYAML>=6.0,<7",
+]
+
+[project.scripts]
+trace-aviary = "trace_aviary.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+trace_aviary = ["templates/*.html", "static/*.css"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[tool.mypy]
+python_version = "3.12"
+packages = ["trace_aviary"]
+strict = true
+warn_unreachable = true
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+module = ["sklearn.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.coverage.run]
+branch = true
+source = ["src"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true

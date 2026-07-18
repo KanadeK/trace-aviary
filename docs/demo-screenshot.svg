@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520" role="img" aria-label="Trace Aviary demo screenshot">
+  <rect width="960" height="520" fill="#f7f9fb"/>
+  <rect x="36" y="32" width="888" height="92" fill="#ffffff" stroke="#d6dde4"/>
+  <text x="64" y="70" fill="#23685a" font-family="Arial" font-size="18" font-weight="700">Trace Aviary v0.1.0</text>
+  <text x="64" y="104" fill="#17212b" font-family="Arial" font-size="32" font-weight="700">Incident species from noisy logs and stack traces</text>
+  <rect x="36" y="152" width="268" height="300" rx="8" fill="#ffffff" stroke="#d6dde4"/>
+  <text x="60" y="190" fill="#596674" font-family="Arial" font-size="16">Upload or paste logs</text>
+  <rect x="60" y="210" width="220" height="118" rx="6" fill="#ffffff" stroke="#d6dde4"/>
+  <rect x="60" y="350" width="120" height="38" rx="6" fill="#23685a"/>
+  <text x="86" y="375" fill="#ffffff" font-family="Arial" font-size="15" font-weight="700">Analyze</text>
+  <rect x="332" y="152" width="276" height="140" rx="8" fill="#ffffff" stroke="#d6dde4"/>
+  <text x="356" y="190" fill="#17212b" font-family="Arial" font-size="22" font-weight="700">inventory_lock-2</text>
+  <text x="356" y="220" fill="#9a5a16" font-family="Arial" font-size="15" font-weight="700">100 samples</text>
+  <text x="356" y="250" fill="#23685a" font-family="Arial" font-size="14">checkout, worker, inventory_lock</text>
+  <rect x="632" y="152" width="276" height="140" rx="8" fill="#ffffff" stroke="#d6dde4"/>
+  <text x="656" y="190" fill="#17212b" font-family="Arial" font-size="22" font-weight="700">customer_tier-1</text>
+  <text x="656" y="220" fill="#9a5a16" font-family="Arial" font-size="15" font-weight="700">100 samples</text>
+  <text x="656" y="250" fill="#23685a" font-family="Arial" font-size="14">payment, payload, schema</text>
+  <rect x="332" y="312" width="276" height="140" rx="8" fill="#ffffff" stroke="#d6dde4"/>
+  <text x="356" y="350" fill="#17212b" font-family="Arial" font-size="22" font-weight="700">tenant-guard-0</text>
+  <text x="356" y="380" fill="#9a5a16" font-family="Arial" font-size="15" font-weight="700">100 samples</text>
+  <rect x="632" y="312" width="276" height="140" rx="8" fill="#ffffff" stroke="#d6dde4"/>
+  <text x="656" y="350" fill="#17212b" font-family="Arial" font-size="22" font-weight="700">retry-backoff-4</text>
+  <text x="656" y="380" fill="#9a5a16" font-family="Arial" font-size="15" font-weight="700">100 samples</text>
+</svg>
