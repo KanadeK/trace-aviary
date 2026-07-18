@@ -19,7 +19,7 @@ classifiers = [
   "Topic :: System :: Logging",
 ]
 dependencies = [
-  "fastapi>=0.116,<0.117",
+  "fastapi>=0.139,<0.140",
   "jinja2>=3.1,<4",
   "numpy>=2.0,<3",
   "polars>=1.31,<2",
@@ -27,6 +27,7 @@ dependencies = [
   "python-multipart>=0.0.20,<0.1",
   "rich>=13.9,<14",
   "scikit-learn>=1.7,<2",
+  "starlette>=1.3.1,<2",
   "typer>=0.16,<0.17",
   "uvicorn>=0.35,<0.36",
 ]
