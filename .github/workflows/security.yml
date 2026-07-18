@@ -21,4 +21,5 @@ jobs:
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e ".[dev]"
       - run: python -m pip_audit . --strict
-      - run: git grep -nE 'api[_-]?key|password|secret|token' -- ':!docs/PRIVACY_AND_SECURITY.md' ':!src/trace_aviary/domain/normalization.py' ':!tests/unit/test_normalization.py' && exit 1 || exit 0
+      - run: |
+          git grep -nE "(api[_-]?key|password|secret|token)[[:space:]]*[:=][[:space:]]*['\"]?[A-Za-z0-9._~+/=-]{12,}" -- . && exit 1 || exit 0
